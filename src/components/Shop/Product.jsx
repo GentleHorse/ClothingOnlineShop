@@ -1,6 +1,13 @@
-import Button from "./utils/Button.jsx";
+import Button from "../utils/Button.jsx";
 
-export default function Product({ id, image, title, price, description }) {
+export default function Product({
+  id,
+  image,
+  title,
+  price,
+  description,
+  onAdd,
+}) {
   return (
     <article className="h-full bg-stone-700 rounded-md flex flex-col justify-between shadow-[0_0_10px_rgba(0,0,0,0.3)]">
       <div>
@@ -12,9 +19,8 @@ export default function Product({ id, image, title, price, description }) {
         </div>
       </div>
       <p className="text-right">
-        <Button>Add to Cart</Button>
+        <Button onClick={() => onAdd(id)}>Add to Cart</Button>
       </p>
     </article>
   );
 }
-

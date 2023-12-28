@@ -1,7 +1,7 @@
-import { DUMMY_PRODUCTS } from "../dummy-products.js";
+import { DUMMY_PRODUCTS } from "../../dummy-products.js";
 import Product from "./Product.jsx";
 
-export default function Shop() {
+export default function Shop({ onAddItemToCart }) {
   return (
     <section className="w-[70%] my-8 mx-auto">
       <h2 className="text-2xl uppercase mb-2 text-amber-100">
@@ -11,7 +11,7 @@ export default function Shop() {
       <ul className="list-none m-0 p-0 grid grid-cols-auto-fit-20rem gap-8">
         {DUMMY_PRODUCTS.map((product) => (
           <li key={product.id}>
-            <Product {...product} />
+            <Product {...product} onAdd={onAddItemToCart} />
           </li>
         ))}
       </ul>
