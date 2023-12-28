@@ -1,9 +1,9 @@
-import mochaOvercoat from './assets/mocha-overcoat.jpg';
-import dreamGown from './assets/dream-gown.jpg';
-import rainJacket from './assets/rain-jacket.jpg';
-import merlotSuit from './assets/merlot-suit.jpg';
-import moonlightDress from './assets/moonlight-dress.jpg';
-import denimPioneer from './assets/denim-pioneer.jpg';
+import mochaOvercoat from './assets/mocha-overcoat.png';
+import dreamGown from './assets/dream-gown.png';
+import rainJacket from './assets/rain-jacket.png';
+import merlotSuit from './assets/merlot-suit.png';
+import moonlightDress from './assets/moonlight-dress.png';
+import denimPioneer from './assets/denim-pioneer.png';
 
 export const DUMMY_PRODUCTS = [
   {

@@ -1,45 +1,23 @@
-import { useRef } from 'react';
+import LogoImage from "/logo.png";
 
-import CartModal from './CartModal.jsx';
+import Button from "./utils/Button.jsx";
 
-export default function Header({ cart, onUpdateCartItemQuantity }) {
-  const modal = useRef();
-
-  const cartQuantity = cart.items.length;
-
-  function handleOpenCartClick() {
-    modal.current.open();
-  }
-
-  let modalActions = <button>Close</button>;
-
-  if (cartQuantity > 0) {
-    modalActions = (
-      <>
-        <button>Close</button>
-        <button>Checkout</button>
-      </>
-    );
-  }
-
+export default function Header() {
   return (
-    <>
-      <CartModal
-        ref={modal}
-        cartItems={cart.items}
-        onUpdateCartItemQuantity={onUpdateCartItemQuantity}
-        title="Your Cart"
-        actions={modalActions}
-      />
-      <header id="main-header">
-        <div id="main-title">
-          <img src="logo.png" alt="Elegant model" />
-          <h1>Elegant Context</h1>
-        </div>
-        <p>
-          <button onClick={handleOpenCartClick}>Cart ({cartQuantity})</button>
-        </p>
-      </header>
-    </>
+    <header className="flex justify-between items-center py-12 px-[15%]">
+      <div className="flex items-center">
+        <img
+          className="w-20 mr-6"
+          src={LogoImage}
+          alt="woman with red frame sunglass"
+        />
+        <h1 className="m-0 text-center uppercase text-amber-400 drop-shadow-sm text-[2.5rem]">
+          Elegant context
+        </h1>
+      </div>
+      <p>
+        <Button>Shopping Cart</Button>
+      </p>
+    </header>
   );
 }
