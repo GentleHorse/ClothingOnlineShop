@@ -1,13 +1,11 @@
+import { useContext } from "react";
+
+import { CartContext } from "../../store/shopping-cart-context.jsx";
 import Button from "../utils/Button.jsx";
 
-export default function Product({
-  id,
-  image,
-  title,
-  price,
-  description,
-  onAdd,
-}) {
+export default function Product({ id, image, title, price, description }) {
+  const { addItemToCart } = useContext(CartContext);
+
   return (
     <article className="h-full bg-stone-700 rounded-md flex flex-col justify-between shadow-[0_0_10px_rgba(0,0,0,0.3)]">
       <div>
@@ -19,7 +17,7 @@ export default function Product({
         </div>
       </div>
       <p className="text-right">
-        <Button onClick={() => onAdd(id)}>Add to Cart</Button>
+        <Button onClick={() => addItemToCart(id)}>Add to Cart</Button>
       </p>
     </article>
   );

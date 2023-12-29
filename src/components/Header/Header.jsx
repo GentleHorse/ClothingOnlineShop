@@ -1,13 +1,15 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 
 import LogoImage from "/logo.png";
 import Button from "../utils/Button.jsx";
 import CartModal from "./Cart/CartModal.jsx";
+import { CartContext } from "../../store/shopping-cart-context.jsx";
 
-export default function Header({ cart, onUpdateCartItemQuantity }) {
+export default function Header() {
   const modal = useRef();
+  const { items } = useContext(CartContext);
 
-  const cartQuantity = cart.items.length;
+  const cartQuantity = items.length;
 
   const openCartHandler = () => {
     modal.current.open();
@@ -33,13 +35,7 @@ export default function Header({ cart, onUpdateCartItemQuantity }) {
 
   return (
     <>
-      <CartModal
-        ref={modal}
-        cartItems={cart.items}
-        title="Your Cart"
-        actions={modalActions}
-        onUpdateCartItemQuantity={onUpdateCartItemQuantity}
-      />
+      <CartModal ref={modal} title="Your Cart" actions={modalActions} />
 
       <header className="flex justify-between items-center py-12 px-[15%]">
         <div className="flex items-center">
